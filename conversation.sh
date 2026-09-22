@@ -1,5 +1,8 @@
 #!/bin/bash
-echo "rock:hi dolly my name is rakesh"
-echo "dolly:hi my name is dolly"
-echo "rock:what is your favorite color?"
-echo "dolly:my favourite colour is black"
+person1="rock"
+person2="dolly"
+
+echo "${person1}:hi ${person2} my name is rakesh"
+echo "${person2}:hi my name is ${person2}"
+echo "${person1}:what is your favorite color?"
+echo "${person2}:my favourite colour is black"
