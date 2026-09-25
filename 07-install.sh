@@ -1,4 +1,17 @@
 #!/bin/bash
+
+userid=$(id -u)
+#check root access or not
+if [ $userid -ne 0 ]; then
+
+echo "Please run as root access"
+  exit 1
+fi
+
+
+
+
+
 ##### install script #####
 if [ "$EUID" -ne 0 ]; then
   echo "Please run as root"
