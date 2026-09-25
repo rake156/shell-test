@@ -12,9 +12,9 @@ echo "Installing MySQL"
 
 dnf install mysql -y
 
-if [ $? -ne 0 ]; then
+if [ $? -eq 0 ]; then
+    echo "Installing MySQL is ... SUCCESS"
+else
     echo "Installing MySQL is ... FAILED"
     exit 1
-else
-    echo "Installing MySQL is ... SUCCESS"
 fi
