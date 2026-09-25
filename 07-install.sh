@@ -6,19 +6,13 @@ if [ $userid -ne 0 ]; then
 echo "Please run this script as root access"
   exit 1
 fi
-echo "im continuing" 
+#echo "im continuing" 
 
 
 
 
 
 ##### install script #####
-if [ "$EUID" -ne 0 ]; then
-  echo "Please run as root"
-  exit
-fi
-
-
 dnf list installed mysql
 if [ $? -eq 0 ]; then
   echo "mysql is already installed....skipping installation"
