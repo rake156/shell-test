@@ -3,7 +3,7 @@
 USERID=$(id -u)
 OGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log"
-TIMESTAMP=$(date "+%y%m%d %H:%M:%S")
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
 
 #check root access or not
@@ -18,10 +18,10 @@ fi
 # second arg -> exit code
 VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "$TIMESTAMP "ERROR": Installing $1 is ... FAILED"
+        echo "$TIMESTAMP [ERROR]: Installing $1 is ... FAILED"
         exit 1
     else
-        echo "$TIMESTAMP "INFO": Installing $1 is ... SUCCESS"
+        echo "$TIMESTAMP [INFO]: Installing $1 is ... SUCCESS"
     fi
 }
 
@@ -33,6 +33,6 @@ do
         dnf install $package -y &>> $LOGS_FILE
         VALIDATE "Installing $package" $?
     else
-        echo "$TIMESTAMP "INFO": $package already installed ... SKIPPING"
+        echo "$TIMESTAMP [INFO]: $package already installed ... SKIPPING"
     fi
 done
