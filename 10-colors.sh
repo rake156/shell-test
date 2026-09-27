@@ -28,18 +28,18 @@ VALIDATE(){
         echo -e"$TIMESTAMP [ERROR]: Installing $1 is ... $R FAILED $W" | tee -a $LOGS_FILE
         exit 1
     else
-        echo -e"$TIMESTAMP [INFO]: Installing $1 is ... $G SUCCESS $W" | tee -a $LOGS_FILE
+        echo -e "$TIMESTAMP [INFO]: Installing $1 is ... $G SUCCESS $W" | tee -a $LOGS_FILE
     fi
 }
 
 for package in $@
 do
-    echo -e"$TIMESTAMP [INFO]: Installing $package" | tee -a $LOGS_FILE
+    echo -e "$TIMESTAMP [INFO]: Installing $package" | tee -a $LOGS_FILE
     dnf list installed $package
     if [ $? -ne 0 ]; then
         dnf install $package -y &>> $LOGS_FILE
         VALIDATE "Installing $package" $?
     else
-        echo -e"$TIMESTAMP [INFO]: $package already installed ... $Y SKIPPING $W" | tee -a $LOGS_FILE
+        echo -e "$TIMESTAMP [INFO]: $package already installed ... $Y SKIPPING $W" | tee -a $LOGS_FILE
     fi
 done
